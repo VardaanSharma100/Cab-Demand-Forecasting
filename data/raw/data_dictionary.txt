@@ -1,0 +1,13 @@
+datetime – Exact ride timestamp  
+year, month, day, weekday, hour – Extracted time features  
+Vehicle Type – Type of vehicle booked  
+Pickup Location – Ride pickup area  
+Drop Location – Ride drop area  
+Avg VTAT – Avg Vehicle Time to Arrival  
+Avg CTAT – Avg Customer Time to Arrival  
+Booking Value – Total ride amount  
+Ride Distance – Distance of trip  
+Driver Ratings – Driver feedback score  
+Customer Rating – Customer feedback score  
+Payment Method – Mode of payment  
+Event – Festival / seasonal event label 
