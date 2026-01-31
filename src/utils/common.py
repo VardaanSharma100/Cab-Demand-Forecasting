@@ -4,10 +4,14 @@ import logging
 import sys
 
 def setup_logger():
+    project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    log_dir = os.path.join(project_root, 'execution.log')
+    os.makedirs(log_dir, exist_ok=True)
+    log_path = os.path.join(log_dir, 'logs')
     logging.basicConfig(
-        level=logging.info,
+        level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
-        handlers=[logging.StreamHandler(sys.stdout)]
+        handlers=[logging.FileHandler(log_path),logging.StreamHandler(sys.stdout)]
     )
     return logging.getLogger(__name__)
 

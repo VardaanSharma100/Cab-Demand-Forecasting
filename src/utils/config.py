@@ -9,7 +9,7 @@ MODEL_PATH=os.path.join(PROJECT_ROOT,'models','final_pipeline.joblib')
 DATETIME_COL='datetime'
 TARGET_COL='Booking Value'
 
-CATEGORICAL_COLS=['Evnet','Vehicle Type','Pickup Location','Drop Location']
+CATEGORICAL_COLS=['Event','Vehicle Type','Pickup Location','Drop Location']
 NUMERICAL_COLS=['Ride Distance']
 
 ALL_FEATURES=[DATETIME_COL] + CATEGORICAL_COLS + NUMERICAL_COLS
@@ -20,4 +20,7 @@ HYPERPARAMETERS={'n_estimators': 577,
  'subsample': 0.7101105091676063,
  'colsample_bytree': 0.7718765912856783,
  'min_child_weight': 6,
- 'gamma': 0.14390799526208975}
+ 'gamma': 0.14390799526208975,
+ 'randome_state':42,
+ 'n_jobs':-1
+ }
