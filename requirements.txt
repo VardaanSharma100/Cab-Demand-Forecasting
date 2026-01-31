@@ -1,0 +1,12 @@
+pandas
+streamlit
+joblib
+folium
+streamlit-folium
+plotly
+geopy
+xgboost
+scikit-learn
+numpy
+ydata-profiling
+optuna
