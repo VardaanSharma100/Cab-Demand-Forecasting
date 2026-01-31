@@ -103,6 +103,13 @@ st.markdown("""
 
 @st.cache_resource
 def load_assets():
+    # Patch for sklearn version mismatch (older model on newer environment)
+    import sklearn.compose._column_transformer
+    if not hasattr(sklearn.compose._column_transformer, '_RemainderColsList'):
+        class _RemainderColsList(list):
+            pass
+        sklearn.compose._column_transformer._RemainderColsList = _RemainderColsList
+
     model = None
     coords = None
     if os.path.exists(MODEL_PATH):
