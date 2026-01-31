@@ -37,32 +37,28 @@ if 'show_results' not in st.session_state:
 st.markdown("""
 <style>
     /* BUTTON STYLES - FIXED HEIGHT ENFORCED */
+    /* BUTTON STYLING */
     div.stButton > button {
         width: 100%;
-        border-radius: 0px 0px 8px 8px; /* Rounded bottom only */
-        border: 1px solid #444;
+        border-radius: 4px;
         background-color: #1e2130; 
         color: #eeeeee;
         font-size: 14px;
         font-weight: 600;
         
         /* STRICT FIXED HEIGHT CONFIGURATION */
-        height: 70px !important; 
-        min-height: 70px !important;
-        max-height: 70px !important;
+        height: auto !important;
+        min-height: 50px !important;
         
         /* Text alignment logic */
-        white-space: pre-wrap !important; /* Allow wrapping for long names */
-        line-height: 1.2 !important;      /* Tighter spacing for multi-line */
-        padding: 4px 2px !important;      /* Minimal padding */
+        white-space: pre-wrap !important; 
+        padding: 8px !important;
         
-        /* Flex centering to keep everything in the middle */
+        /* Flex centering */
         display: flex;
         align-items: center;
         justify-content: center;
         
-        margin-top: -5px; /* Pull button up to touch the image card */
-        z-index: 1;
         transition: all 0.2s ease;
     }
     
@@ -74,16 +70,15 @@ st.markdown("""
     
     /* CARD IMAGE CONTAINER */
     .vehicle-card {
-        background-color: #ffffff; /* FORCE WHITE BACKGROUND */
-        border-radius: 8px 8px 0px 0px; /* Rounded top only */
-        padding: 10px;
-        height: 120px; /* FIXED HEIGHT for alignment */
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 5px;
+        height: 100px;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid #444;
-        border-bottom: none; /* remove bottom border so it merges with button */
+        margin-bottom: 5px;
     }
 
     /* IMAGE ITSELF */
