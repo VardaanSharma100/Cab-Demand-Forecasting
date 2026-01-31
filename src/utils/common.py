@@ -5,9 +5,9 @@ import sys
 
 def setup_logger():
     project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    log_dir = os.path.join(project_root, 'execution.log')
+    log_dir = os.path.join(project_root, 'logs')
     os.makedirs(log_dir, exist_ok=True)
-    log_path = os.path.join(log_dir, 'logs')
+    log_path = os.path.join(log_dir, 'execution.log')
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',

@@ -21,6 +21,6 @@ HYPERPARAMETERS={'n_estimators': 577,
  'colsample_bytree': 0.7718765912856783,
  'min_child_weight': 6,
  'gamma': 0.14390799526208975,
- 'randome_state':42,
+ 'random_state':42,
  'n_jobs':-1
  }

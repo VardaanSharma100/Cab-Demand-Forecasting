@@ -1,4 +1,0 @@
-2026-01-31 17:55:14,608 - INFO - Loading raw data...
-2026-01-31 17:55:15,401 - INFO - Original Shape (160609, 29)
-2026-01-31 17:55:15,445 - INFO - Shape after CCA(99666, 29)
-2026-01-31 17:55:16,488 - INFO - Proessed data saved to d:\Cab Demand Forecasting\data\processed\train_ready.csv

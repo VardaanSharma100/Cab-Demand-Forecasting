@@ -11,14 +11,14 @@ def main():
     model=load_object(MODEL_PATH)
 
     sample_input = pd.DataFrame({
-        'datetime': ['2024-04-15 14:30:00'],
+        'datetime': ['2026-01-31 3:20:00'],
         'Event': ['Normal Day'],
-        'Vehicle Type': ['Premier'],
+        'Vehicle Type': ['Go Mini'],
         'Pickup Location': ['Connaught Place'],
         'Drop Location': ['Noida Sector 18'],
-        'Ride Distance': [12.5]
+        'Ride Distance': [16]
     })
 
     print(model.predict(sample_input))
-if __name__=='__main___':
+if __name__=='__main__':
     main()
