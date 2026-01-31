@@ -6,7 +6,7 @@ streamlit-folium
 plotly
 geopy
 xgboost
-scikit-learn
+scikit-learn>=1.5
 numpy
 ydata-profiling
 optuna
