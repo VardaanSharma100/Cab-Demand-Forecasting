@@ -14,7 +14,7 @@ This project is a machine learning-based application designed to predict dynamic
 
 The predictive model has achieved high accuracy on the test dataset:
 
-*   **R² Score (Accuracy)**: 0.9959
+*   **R² Score (Accuracy)**: 0.89
 *   **MAE (Mean Absolute Error)**: 15.15
 *   **RMSE (Root Mean Square Error)**: 24.78
 
