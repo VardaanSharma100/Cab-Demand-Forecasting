@@ -1,6 +1,6 @@
 # Cab Demand & Fare Forecasting
 
-This project is a machine learning-based application designed to predict dynamic cab fares . It utilizes a robust data pipeline and an interactive Streamlit dashboard to provide insights and fare estimations based on location, time, vehicle type, and special events.
+This project is a machine learning-based application designed to predict dynamic cab fares and demand. It utilizes a robust data pipeline and an interactive Streamlit dashboard to provide insights and fare estimations based on location, time, vehicle type, and special events.
 
 ## 🚀 Features
 
