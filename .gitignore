@@ -1,0 +1,66 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Node modules
+node_modules/
+npm-debug.log
+
+# React/Vite build
+frontend/dist/
+frontend/build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code environment
+.vscode/
+
+# Models and large files (Optional, assuming you might want to keep the final pipeline, but mostly ignore raw large files if they exceed GitHub limit, though we'll keep what user already has.)
+# data/raw/
+# models/
+*.csv
+!data/processed/checkpoint.csv
+!data/processed/train_ready.csv
+!data/raw/ncr_rides_final_event_dataset_2024.csv
+
+# Environment variables
+.env
+.env.local
+
+# OS Generated
+.DS_Store
+Thumbs.db

@@ -1,80 +1,77 @@
-# Cab Demand & Fare Forecasting
+# Cab Demand & Dynamic Fare Forecasting
 
-This project is a machine learning-based application designed to predict dynamic cab fares . It utilizes a robust data pipeline and an interactive Streamlit dashboard to provide insights and fare estimations based on location, time, vehicle type, and special events.
+![Cab Demand Forecasting Demo](demo.gif)
 
-## 🚀 Features
+This project is an end-to-end Machine Learning pipeline and forecasting application designed to predict dynamic cab fares accurately. It factors in variables like location, time, vehicle type, traffic distances, and special events to compute an optimal price, mimicking real-world dynamic pricing engines (e.g., Surge Pricing in Uber/Ola).
 
-*   **Interactive Dashboard**: A user-friendly web interface built with Streamlit.
-*   **Dynamic Fare Prediction**: Accurate fare estimates using an XGBoost regression model.
-*   **Location Visualizations**: Integration with Folium for interactive map-based location selection.
-*   **Event-Aware Pricing**: Accounts for special events (e.g., Festivals, Weather conditions) that impact demand and pricing.
-*   **Vehicle Variety**: Supports multiple vehicle types including Auto, Premier Sedan, Bike, Uber XL, and more.
+## 🧠 Machine Learning Architecture
 
-## 📊 Model Performance
+The core of the system relies on an **XGBoost Regression Model** that handles complex, non-linear relationships between the time of day, weather, events, and distance metrics. 
 
+### Model Performance
 The predictive model has achieved high accuracy on the test dataset:
-
-*   **R² Score (Accuracy)**: 0.89
+*   **R² Score**: 0.89
 *   **MAE (Mean Absolute Error)**: 15.15
 *   **RMSE (Root Mean Square Error)**: 24.78
 
-## 📂 Project Structure
+### Explainable Pricing (Pricing Breakdown)
+Instead of acting as a black box, the model predictions are mathematically broken down to offer a transparent price explanation. Predictions output clear metrics mapping out exactly *why* a price is what it is:
+1. **Base Fare**: Fixed base cost correlated to the chosen vehicle capacity.
+2. **Distance Contribution**: Mileage rates dynamically mapped via routing APIs.
+3. **Surge Factor**: Algorithmic capability triggering price surges mapped to Events (e.g., Monsoon, Diwali, Rush Hour).
+
+### Feature Engineering
+The pipeline automatically extracts robust features from raw coordinates and logs, specifically focusing on:
+- **Haversine & Routing Distance:** Generating real-world metrics from coordinate mappings.
+- **Temporal Cycles**: Encoding time and day periods to capture peak demand trends.
+- **Categorical Intersections**: Specialized encodings for geographic nodes and interacting vehicle combinations.
+
+## 📁 Project Structure
 
 ```text
 ├── data/               # Raw and processed datasets
-├── logs/               # Application logs
-├── models/             # Trained serialized models (.joblib)
-├── notebooks/          # Jupyter notebooks for EDA and experimentation
-├── src/                # Source code directory
-│   ├── data/           # Scripts for data ingestion and processing
+├── models/             # Trained serialized pipeline models (.joblib)
+├── notebooks/          # Exploratory Data Analysis (EDA) & experimentation
+├── src/                # Machine Learning source code
+│   ├── data/           # ETL, ingestion & cleaning
 │   ├── features/       # Feature engineering and transformation
-│   ├── models/         # Model training and evaluation scripts
-│   └── utils/          # Utility functions and configuration
-├── app.py              # Main Streamlit application entry point
-├── readme.md           # Project documentation
-└── requirements.txt    # (Recommended) List of dependencies
+│   ├── models/         # XGBoost training & evaluation scripts
+│   └── utils/          # ML utility tools
+├── backend/            # FastAPI layer serving the ML model & explainability
+├── frontend/           # React/Vite UI visualizing geospatial ML predictions
+└── requirements.txt    # ML and Backend dependencies
 ```
 
-## 🛠️ Installation
+## ⚙️ Model Pipeline Execution
 
-1.  **Clone the repository**:
-    ```bash
-     git clone <repository-url>
-     cd "Cab Demand Forecasting"
-    ```
-
-2.  **Install dependencies**:
-    Ensure you have Python installed. It is recommended to use a virtual environment.
-    ```bash
-    pip install pandas streamlit joblib folium streamlit-folium plotly geopy xgboost scikit-learn
-    ```
-
-## 💡 Usage
-
-### Running the Web Application
-To launch the interactive dashboard:
-```bash
-streamlit run app.py
-```
-
-### Data Pipeline & Training
-To reproduce the data processing and model training steps:
+Run the ML lifecycle to recreate the dataset and retrain the XGBoost predictor:
 
 1.  **Process Data**:
     ```bash
     python src/data/make_data.py
     ```
-    This cleans the raw data and saves it to `data/processed/`.
+    This prepares the latest events and spatial data.
 
 2.  **Train Model**:
     ```bash
     python src/models/train_model.py
     ```
-    This trains the XGBoost model and saves the pipeline to `models/final_pipeline.joblib`.
+    This trains the XGBoost model and serializes the pipeline to `models/final_pipeline.joblib`.
 
-## 📈 Data & Events
+## 🚀 Serving the Application
 
-The model considers various factors including:
+To interact with the model predictions via the React and FastAPI stack:
 
-*   **Vehicle Types**: Auto, Premier Sedan, Bike, Go Mini, Go Sedan, Uber XL, eBike.
-*   **Events**: Monsoon, Wedding Season, Diwali, Christmas, New Year, and standard days.
+1. **Start the ML Inference Server (Backend)**:
+   ```bash
+   cd backend
+   pip install -r requirements.txt
+   uvicorn app:app --reload
+   ```
+
+2. **Start the Maps & Prediction UI (Frontend)**:
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
